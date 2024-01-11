@@ -104,9 +104,9 @@ Response:
 ------
 
 
-Poll = http<area>s://appbeta.hhmedsoftware.com/ivr/poll/?s={TRUE/FALSE}&u={USERID}&a={APPTID}
+Poll = http<area>s://appbeta.hhmedsoftware.com/ivr/poll/?s={TRUE|FALSE}&u={USERID}&a={APPTID}
 
-The True/False value for the "s" attribute in the query string is returned from getAppt ( {"status": true/false} ). This sets whether or not the selected visit has already been checked in. 
+The True/False value for the "s" attribute in the query string is returned from getAppt ( {"status": true|false} ). This sets whether or not the selected visit has already been checked in. 
 
 Default value is FALSE.  
 
@@ -138,6 +138,17 @@ Response:
 This link will direct to webpage that will capture GPS coordinates from the user. These coordinates are not included in response, only status of { "success": true|false }, which indicates the GPS location was captured.
 In the case of a CHECK IN, the response would trigger the IVR to inform the user they have checked in and to end the call. 
 In the case of a CHECK OUT, the response would trigger the IVR to prompt the user to answer a YES(1)/NO(2) question before being able to complete the call. [PENDING]
+
+-----
+
+
+taskCheck = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=t&u={USERID}&a={APPTID}&s={TRUE|FALSE}
+
+Additional query string options: &t={1|2}
+
+This link will serve as the check for the user for task completion upon check out. The value of the "t" attribute will be provide from user input.
+
+Example: http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=t&s=true&u=84106&a=1386799&t=1
 
 
 
