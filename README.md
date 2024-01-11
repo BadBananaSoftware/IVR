@@ -2,11 +2,11 @@
 KUTUNZA IVR API documentation
 
 
-getUser = https://appbeta.hhmedsoftware&#8204;.com/ivr/getTwil/?ext=u
+getUser = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=u
 
 Additional query string options: &u={USERID}
 
-Example: https://appbeta.hhmedsoftware&#8204;.com/ivr/getTwil/?ext=u
+Example: http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=u
 
 <pre>
 Response:
