@@ -2,11 +2,11 @@
 KUTUNZA IVR API documentation
 
 
-getUser = https://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=u
+getUser = https://appbeta<area>.hhmedsoftware.com/ivr/getTwil/?ext=u
 
 Additional query string options: &u={USERID}
 
-Example: https://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=u
+Example: https://appbeta<area>.hhmedsoftware.com/ivr/getTwil/?ext=u
 
 <pre>
 Response:
@@ -28,7 +28,7 @@ Response:
 </pre>
 
 
-Example: https://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=u&u=84106
+Example: https://appbeta<area>.hhmedsoftware.com/ivr/getTwil/?ext=u&u=84106
 
 <pre>
 Response:
@@ -52,11 +52,11 @@ Response:
 ------
 
 
-getAppt = https://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=a&u={USERID}
+getAppt = https://appbeta<area>.hhmedsoftware.com/ivr/getTwil/?ext=a&u={USERID}
 
 Additional query string options: &a={APPTID}
 
-Example: https://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=a&u=84106
+Example: https://appbeta<area>.hhmedsoftware.com/ivr/getTwil/?ext=a&u=84106
 
 <pre>
 Response:
@@ -78,7 +78,7 @@ Response:
 }
 </pre>
 
-Example: https://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=a&u=84106&a=1386799
+Example: https://appbeta<area>.hhmedsoftware.com/ivr/getTwil/?ext=a&u=84106&a=1386799
 
 <pre>
 Response:
@@ -104,13 +104,13 @@ Response:
 ------
 
 
-Poll = https://appbeta.hhmedsoftware.com/ivr/poll/?s={TRUE/FALSE}&u={USERID}&a={APPTID}
+Poll = https://appbeta<area>.hhmedsoftware.com/ivr/poll/?s={TRUE/FALSE}&u={USERID}&a={APPTID}
 
 The True/False value for the "s" attribute in the query string is returned from getAppt ( {"status": true/false} ). This sets whether or not the selected visit has already been checked in. 
 
 Default value is FALSE.  
 
-Example: https://appbeta.hhmedsoftware.com/ivr/poll/?s=false&u=84106&a=1386799
+Example: https://appbeta<area>.hhmedsoftware.com/ivr/poll/?s=false&u=84106&a=1386799
 
 <pre>
 Response:
@@ -122,11 +122,11 @@ Response:
 -----
 
 
-Verify = https://appbeta.hhmedsoftware.com/ivr/verify/?u={USERID}&a={APPTID}&s={TRUE|FALSE}
+Verify = https://appbeta<area>.hhmedsoftware.com/ivr/verify/?u={USERID}&a={APPTID}&s={TRUE|FALSE}
 
 This link will be what Twilio sends to the user
 
-Example: https://appbeta.hhmedsoftware.com/ivr/verify/?s=false&u=84106&a=1386799
+Example: https://appbeta<area>.hhmedsoftware.com/ivr/verify/?s=false&u=84106&a=1386799
 
 <pre>
 Response:
