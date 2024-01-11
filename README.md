@@ -8,6 +8,7 @@ getUser = https://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=u
 Additional query string options: &u={USERID}
 
 Example: https://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=u
+<pre>
 Response:
 {
 	"userID": "",
@@ -24,6 +25,7 @@ Response:
 		}
 	}
 }
+</pre>
 
 Example: https://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=u&u=84106
 Response:
