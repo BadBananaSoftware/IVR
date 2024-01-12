@@ -1,8 +1,13 @@
 # SKILLED CARE IVR
 KUTUNZA IVR (SKILLED CARE) API documentation
 
+*URLs may change based on server/directory location
 
-getUser = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=u
+<hr />
+
+<strong>Verify User</strong>
+
+getUser = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?<strong>ext=u</strong>
 
 Additional query string options: &u={USERID}
 
@@ -49,10 +54,11 @@ Response:
 }
 </pre>
 
-------
+<hr />
 
+<strong>Verify Appointment</strong>
 
-getAppt = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=a&u={USERID}
+getAppt = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?<strong>ext=a</strong>&u={USERID}
 
 Additional query string options: &a={APPTID}
 
@@ -101,30 +107,18 @@ Response:
 }
 </pre>
 
-------
+<hr />
 
-
-Poll = http<area>s://appbeta.hhmedsoftware.com/ivr/poll/?s={TRUE|FALSE}&u={USERID}&a={APPTID}
-
-The True/False value for the "s" attribute in the query string is returned from getAppt ( {"status": true|false} ). This sets whether or not the selected visit has already been checked in. 
-
-Default value is FALSE.  
-
-Example: http<area>s://appbeta.hhmedsoftware.com/ivr/poll/?s=false&u=84106&a=1386799
-
-<pre>
-Response:
-{
-"success": false
-}
-</pre>
-
------
-
+<strong>Capture GPS</strong>
 
 Verify = http<area>s://appbeta.hhmedsoftware.com/ivr/verify/?u={USERID}&a={APPTID}&s={TRUE|FALSE}
 
-This link will be what Twilio sends to the user
+This link is what Twilio sends to the user via SMS. This link will direct the user to a webpage that will capture GPS coordinates from the user. 
+This link should be shortened (via Bitly) to obfuscate the query string.
+
+Default value is FALSE.
+
+The GPS coordinates are not included in the response. { "success": true } indicates the GPS location was captured on the server.
 
 Example: http<area>s://appbeta.hhmedsoftware.com/ivr/verify/?s=false&u=84106&a=1386799
 
@@ -135,11 +129,50 @@ Response:
 }
 </pre>
 
-This link will direct to webpage that will capture GPS coordinates from the user. These coordinates are not included in response, only status of { "success": true|false }, which indicates the GPS location was captured.
 
-If "success": true, the check in/out process is complete and the call is ended.
+-----
 
+<strong>CHECK IN</strong>
 
+completeCheckIn = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?<strong>ext=pi</strong>&s={TRUE|FALSE}&u={USERID}&a={APPTID}
 
+This is what Twilio will use to ping the server to await response of GPS coordinates being captured for <strong>CHECK IN</strong>. 
 
+The True/False value for the "s" attribute in the query string is returned from getAppt {"status": true|false}. This establishes whether or not the selected visit has ALREADY been checked in. 
+
+Default value is FALSE (NOT checked in).  If s=true, the user should directed to CHECK OUT.
+
+Example: http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=pi&s=false&u=84106&a=1386799
+
+<pre>
+Response:
+{
+"success": false
+}
+</pre>
+
+When response "success": true, GPS has been captured. The check in process is complete and the call is ended.
+
+-----
+
+<strong>CHECK OUT</strong>
+
+completeCheckOut = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?<strong>ext=pt</strong>&s={TRUE|FALSE}&u={USERID}&a={APPTID}
+
+This is what Twilio will use to ping the server to await response of GPS coordinates being captured for <strong>CHECK OUT</strong>. 
+
+The True/False value for the "s" attribute in the query string is returned from getAppt ( {"status": true|false} ). This establishes whether or not the selected visit has ALREADY been checked in. 
+
+Default value is TRUE.  This link is not called unless the value of "s" is TRUE.
+
+Example: http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?<strong>ext=pt</strong>&s=true&u=84106&a=1386799
+
+<pre>
+Response:
+{
+"success": true
+}
+</pre>
+
+When response "success": true, GPS has been captured. The check out process is complete and the call is ended.
 
