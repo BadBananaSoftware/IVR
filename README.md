@@ -134,9 +134,9 @@ Response:
 
 <strong>CHECK IN</strong>
 
-completeCheckIn = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?<strong>ext=pi</strong>&s={TRUE|FALSE}&u={USERID}&a={APPTID}
+pollCheckIn = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?<strong>ext=pi</strong>&s={TRUE|FALSE}&u={USERID}&a={APPTID}
 
-This is what Twilio will use to ping the server to await response of GPS coordinates being captured for <strong>CHECK IN</strong>. 
+This is what Twilio will use to poll/ping the server to await response of GPS coordinates being captured for <strong>CHECK IN</strong>. 
 
 The True/False value for the "s" attribute in the query string is returned from getAppt {"status": true|false}. This establishes whether or not the selected visit has ALREADY been checked in. 
 
@@ -157,9 +157,9 @@ When response "success": true, GPS has been captured. The check in process is co
 
 <strong>CHECK OUT</strong>
 
-completeCheckOut = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?<strong>ext=pt</strong>&s={TRUE|FALSE}&u={USERID}&a={APPTID}
+pollCheckOut = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?<strong>ext=pt</strong>&s={TRUE|FALSE}&u={USERID}&a={APPTID}
 
-This is what Twilio will use to ping the server to await response of GPS coordinates being captured for <strong>CHECK OUT</strong>. 
+This is what Twilio will use to poll/ping the server to await response of GPS coordinates being captured for <strong>CHECK OUT</strong>. 
 
 The True/False value for the "s" attribute in the query string is returned from getAppt ( {"status": true|false} ). This establishes whether or not the selected visit has ALREADY been checked in. 
 
