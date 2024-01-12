@@ -1,5 +1,5 @@
 # SKILLED CARE IVR
-KUTUNZA IVR (SKILELD CARE) API documentation
+KUTUNZA IVR (SKILLED CARE) API documentation
 
 
 getUser = http<area>s://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=u
