@@ -24,7 +24,7 @@ Response:
 		"action": "https://appbeta.hhmedsoftware.com/ivr/getTwil/?ext=u",
 		"finishOnKey": "#",
 		"Say": {
-			"message": "Welcome to H MED MANAGER IVR. Please enter your user ID followed by the pound sign."
+			"message": "Welcome to H MED MANAGER SKILLED CARE I V R. Please enter your user ID, followed by the pound sign."
 		},
 		"timeout": 5
 	}
