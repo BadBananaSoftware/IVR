@@ -129,6 +129,15 @@ Response:
 }
 </pre>
 
+Edit: 20240116 - modified query string to add flag for one-time use
+
+http<area>s://appbeta.hhmedsoftware.com/ivr/verify/?u={USERID}&a={APPTID}&s={TRUE|FALSE}&c={TIMESTAMP}
+
+&c=20240116150630 
+
+The timestamp will be generated for 3 minutes from the time the link is sent. Time is in UTC.
+
+For example, if the link was sent to the user on Jaunary 18, 2024 at 10:08:30, the link would be c=20240118151130.
 
 -----
 
